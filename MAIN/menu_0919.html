@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>商赛主界面</title>
+
+  <!--- Site CSS -->
+    <link rel="stylesheet" type="text/css" href="../dist/components/reset.css">
+    <link rel="stylesheet" type="text/css" href="../dist/components/site.css">
+    <link rel="stylesheet" type="text/css" href="../dist/components/grid.css">
+
+  <!--- Component CSS -->
+    <link rel="stylesheet" type="text/css" href="../dist/components/menu.css">
+    <link rel="stylesheet" type="text/css" href="../dist/components/input.css">
+    <link rel="stylesheet" type="text/css" href="../dist/components/dropdown.css">
+    <link rel="stylesheet" type="text/css" href="../dist/components/icon.css">
+    <link rel="stylesheet" type="text/css" href="../dist/components/button.css">
+    <link rel="stylesheet" type="text/css" href="../dist/components/label.css">
+    <link rel="stylesheet" type="text/css" href="../dist/components/transition.css">
+
+  <!--- Example Libs -->
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+
+  <!--- Component JS -->
+    <script type="text/javascript" src="../dist/components/dropdown.js"></script>
+    <script type="text/javascript" src="../dist/components/transition.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="back.php?action=test"></script>
+
+    <!--- Example CSS -->
+    <style>
+        body {
+            padding: 4em 8em;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="myphp.php" method="post">
+        <!--顶边-->
+        <div class="ui inverted fixed menu">
+            <div class="header item" color=#1B1C1D>AAAAA</div>
+            <div class="header item">Brand</div>
+            <div class="active item">Link</div>
+            <a class="item">Link</a>
+            <a class="right item">
+                登出
+                <i class="sign out alternate icon"></i>
+            </a>
+        </div>
+        <!--侧边-->
+        <div class="ui left fixed demo vertical inverted sidebar labeled icon menu">
+            <a class="item"><font color=#1B1C1D>.</font></a>
+            <a class="item" id="home">
+                <i class="home icon"></i>
+                主页
+            </a>
+            <a class="item" id="produce">
+                <i class="fire extinguisher icon"></i>
+                生产
+            </a>
+            <a class="item" id="trade">
+                <i class="law icon"></i>
+                交易
+            </a>
+            <a class="item" id="loan">
+                <i class="money icon"></i>
+                贷款
+            </a>
+            <a class="item" id="other">
+                <i class="smile icon"></i>
+                其他支出
+            </a>
+            <a class="item" id="current">
+                <i class="bar chart icon"></i>
+                实时资产
+            </a>
+            <a class="item" id="history">
+                <i class="ordered list icon"></i>
+                历史记录
+            </a>
+        </div>
+        <div align="center">
+            <div id="homecontent" class="content">
+                <h1 class="ui header">Semantic UI Fixed Template</h1>
+                <p>This is a basic fixed menu template using fixed size containers.</p>
+                <p>A text container is used for the main container, which is useful for single column layouts</p>
+            </div>
+            <!--生产-->
+            <div id="producecontent" class="content">
+                <a class="ui massive green label">生产产品</a>
+                <select class="ui compact dropdown" id="whattoproduce">
+                    <option value="">请选择产品</option>
+                    <option value="0">A1</option>
+                    <option value="1">A2</option>
+                    <option value="2">A3</option>
+                    <option value="3">A4</option>
+                </select>
+                <p>现在是1级</p>
+                <a class="ui massive green label">生产个数</a>
+                <div class="ui huge input">
+                    <input type="text" id="producenum">
+                </div>
+                <button class="ui huge button" id="cleanproducenum">清空</button>
+                <br><br>
+                <p>需要B1 15 个，现有 B1 20 个，剩余 B1 5 个</p>
+                <p>总价格：200 元 ，需要时间： 40 分钟 </p>
+                <button class="ui huge primary button">提交</button>
+                <p>提交成功，将在 10 点 30 分收获 5 个A2 .</p>
+            </div>
+            <!--贸易-->
+            <div id="tradecontent" class="content">
+                <a class="ui massive green label">对方部门</a>
+                <select class="ui compact dropdown" id="fieldtotrade">
+                    <option value="">请选择部门</option>
+                    <option value="1">第一产业</option>
+                    <option class="2">第二产业</option>
+                    <option class="3">第三产业</option>
+                    <option class="0">消费市场</option>
+                </select>
+                <a class="ui massive green label">具体公司/消费者</a>
+                <select class="ui compact dropdown" id="producttotrade"></select>
+                <br><br>
+                <a class="ui massive blue label">对方出的资金</a>
+                <div class="ui huge left icon input">
+                    <i class="yen icon"></i>
+                    <input type="text" id="ugivemoney">
+                </div>
+                <button class="ui huge black button" id="cleantrade1">清空</button>
+                <br><br>
+                <a class="ui massive blue label">出的货物</a>
+                <select class="ui compact dropdown" id="Ugivegoodkind">
+                    <option value="">请选择</option>
+                    <option value="1">A1</option>
+                    <option class="2">A2</option>
+                    <option class="3">A3</option>
+                </select>
+                <div class="ui huge input">
+                    <input type="text" id="ugivegoodnum">
+                </div>
+                <button class="ui huge black button" id="cleantrade2">清空</button>
+                <br><br>
+                <a class="ui massive blue label">我方出的资金</a>
+                <div class="ui huge left icon input">
+                    <i class="yen icon"></i>
+                    <input type="text" id="igivemoney">
+                </div>
+                <button class="ui huge black button" id="cleantrade3">清空</button>
+                <br><br>
+                <a class="ui massive blue label">出的货物</a>
+                <select class="ui compact dropdown" id="igivegoodkind">
+                    <option value="">请选择</option>
+                    <option value="1">A1</option>
+                    <option class="2">A2</option>
+                    <option class="3">A3</option>
+                </select>
+                <div class="ui huge input">
+                    <input type="text" id="igivegoodnum">
+                </div>
+                <button class="ui huge black button" id="cleantrade4">清空</button>
+                <br><br>
+                <button class="ui huge orange button" id="tradesubmit">提交</button>
+            </div>
+            <!--贷款-->
+            <div id="loancontent" class="content">
+                <a class="ui massive green label">贷款资金量</a>
+                <div class="ui huge left icon input">
+                    <i class="yen icon"></i>
+                    <input type="text" id="loannum">
+                </div>
+                <button class="ui huge blue button" id="cleanloannum">清空</button>
+                <br><br>
+                <a class="ui massive green label">初始贷款时间</a>
+                <div class="ui huge input">
+                    <input type="text" placeholder="example->10:15" id="loanstart">
+                </div>
+                <button class="ui huge blue button" id="cleanloanstart">清空</button>
+                <br><br>
+                <a class="ui massive green label">贷款利率</a>
+                <div class="ui huge right icon input">
+                    <input type="text" id="loaninterest">
+                    <i class="percent icon"></i>
+                </div>
+                <button class="ui huge blue button" id="cleanloaninterest">清空</button>
+                <br><br>
+                <a class="ui massive green label">贷款时间</a>
+                <div class="ui huge input">
+                    <input type="text" placeholder="单位：分钟" id="loantime">
+                </div>
+                <button class="ui huge blue button" id="cleanloantime">清空</button>
+                <p>贷款将在10:35结束，届时需要交纳本息共1030元</p>
+                <button class="ui huge orange button" id="loansubmit">提交</button>
+            </div>
+            <!--其他部分-->
+            <div id="othercontent" class="content">
+                <a class="ui massive green label">纳税</a>
+                <div class="ui huge left icon input">
+                    <i class="yen icon"></i>
+                    <input type="text" id="other1">
+                </div>
+                <button class="ui huge button" id="cleanother1">清空</button>
+                <button class="ui huge primary button">提交</button>
+                <br><br>
+                <a class="ui massive green label">技术升级</a>
+                <div class="ui huge left icon input">
+                    <i class="yen icon"></i>
+                    <input type="text" id="other2">
+                </div>
+                <button class="ui huge button" id="cleanother2">清空</button>
+                <button class="ui huge primary button">提交</button>
+                <br><br>
+                <a class="ui massive green label">交易竞标</a>
+                <div class="ui huge left icon input">
+                    <i class="yen icon"></i>
+                    <input type="text" id="other3">
+                </div>
+                <button class="ui huge button" id="cleanother3">清空</button>
+                <button class="ui huge primary button">提交</button>
+            </div>
+            <!--实时资产-->
+            <div id="currentcontent" class="content">
+            </div>
+            <!--历史-->
+            <div id="historycontent" class="content">
+            </div>
+        </div>
+    </form>
+</body>
+</html>
