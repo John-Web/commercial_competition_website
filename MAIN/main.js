@@ -77,9 +77,8 @@ $(document).ready(function() {
 	$("#techupSubmit").click(function(){
 		alert("NO.1队：你们已通过审核，达到2级。");
     });
-	$("bidSubmit").click(function(){
-		alert('您的竞标申请已提交到后台,竞标价:'+$('#other3').val()+'。审核通过后会通知您。');
-		
+    $("#bidSubmit").click(function(){
+        alert("您的竞标申请已提交到后台,竞标价:"+$('#other3').val()+"元。审核通过后会通知您。");
     });
     //历史部分
 
@@ -90,13 +89,15 @@ $(document).ready(function() {
 
 function operation(val)
 {
+    "use strict";
 	//building ajax object
-    var ajax = false;
+    var ajax=null;
     if(window.XMLHttpRequest) 
     {
         ajax = new XMLHttpRequest();
-        if (ajax.overrideMimeType) 
+        if (ajax.overrideMimeType) {
             ajax.overrideMimeType("text/xml");
+        }
     }
     else if (window.ActiveXObject) 
     {
@@ -120,14 +121,14 @@ function operation(val)
     }
 	
 	
-	
+	var msg,url,postStr;
 	//main function
 	switch(val)
 	{
 	case 1: //以下为例子
-		var msg = document.getElementById("whattoproduce");
-		var url = "getFieldToTrade.php";
-		var postStr = ""
+		msg = document.getElementById("whattoproduce");
+		url = "getFieldToTrade.php";
+		postStr = "";
 		break;
 	case 2:
 		break;
@@ -142,9 +143,7 @@ function operation(val)
     ajax.open("POST", url, true);
     ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
     ajax.send(postStr);
-    ajax.onreadystatechange = function() 
-    {
-		if (ajax.readyState == 4 && ajax.status == 200) 
-            msg.innerHTML = ajax.responseText; 
-    } 
+    if (ajax.status===200) {
+        msg.innerHTML = ajax.responseText;
+    }
 }
