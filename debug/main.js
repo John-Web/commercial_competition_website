@@ -11,6 +11,7 @@ $(document).ready(function() {
     $("#trade").click(function () {
         $(".content").hide();
         $("#tradecontent").show();
+        operation(2);
     });
     $("#loan").click(function () {
         $(".content").hide();
@@ -121,7 +122,9 @@ function inneroperation(val)
 		document.getElementById("num_need").innerHTML="15";
 		var pro_select=document.getElementById("whattoproduce");
 	    var index=pro_select.selectedIndex;
-	    document.getElementById("name_need").innerHTML=pro_select.options[index].text;
+	    document.getElementById("name_need").innerHTML=pro_select.options[index].text;\
+        break;
+	    case 3:
 		//;
 		//以下需要补充
 	    

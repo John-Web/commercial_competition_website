@@ -1,4 +1,4 @@
-$("#document").ready(function($) {
+$(document).ready(function($) {
     "use strict";
     var $content=$(".content");
     $("#home").on('click',function () {
@@ -91,41 +91,18 @@ function operation(val)
 {
     "use strict";
 	//building ajax object
-    var ajax=null;
-    if(window.XMLHttpRequest) 
-    {
-        ajax = new XMLHttpRequest();
-        if (ajax.overrideMimeType) {
-            ajax.overrideMimeType("text/xml");
-        }
-    }
-    else if (window.ActiveXObject) 
-    {
-        try
-		{
-            ajax = new window.ActiveXObject("Msxml2.XMLHTTP");
-		}
-        catch (e) 
-        {
-            try
-			{
-                ajax = new window.ActiveXObject("Microsoft.XMLHTTP");
-			}
-            catch (e) {}
-        }
-    }
-    if (!ajax) 
+    var ajax=new XMLHttpRequest();
+    if (!ajax)
     {
         window.alert("不能创建XMLHttpRequest对象实例.");
         return false;
     }
 	
-	
     var msg,url,postStr;
 	//main function
 	switch(val)
 	{
-	case 1: //以下为例子
+	case 1:
 		msg = document.getElementById("whattoproduce");
 		url = "getFieldToTrade.php";
 		postStr = "";
@@ -140,10 +117,10 @@ function operation(val)
 	
 	
 	
-    ajax.open("POST", url, true);
+    ajax.open("GET", url, true);
     ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
     ajax.send(postStr);
-    if (ajax.status===200) {
+    if (ajax.readyState===4 && ajax.status===200) {
         msg.innerHTML = ajax.responseText;
     }
 }

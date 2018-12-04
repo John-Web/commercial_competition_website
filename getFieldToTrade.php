@@ -5,4 +5,3 @@ echo "
 	<option value=\"2\">A3</option>\n
 	<option value=\"3\">A4</option>\n
 	";
-?>
