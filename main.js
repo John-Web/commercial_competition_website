@@ -1,8 +1,7 @@
 $("#document").ready(function($) {
     "use strict";
-    var $content=$(".content"),
-        $home=$("#home");
-    $home.on('click',function () {
+    var $content=$(".content");
+    $("#home").on('click',function () {
         $content.hide();
         $("#homecontent").show();
     });
@@ -32,7 +31,6 @@ $("#document").ready(function($) {
         $("#historycontent").show();
     });
     $('.ui.dropdown').dropdown();
-    $home.click();
     //生产部分
     $("#producenum").bind('change',function(){
         operation(2);
