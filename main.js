@@ -1,91 +1,93 @@
-$(document).ready(function() {
-    $("#home").click(function () {
-        $(".content").hide();
+$("#document").ready(function($) {
+    "use strict";
+    var $content=$(".content"),
+        $home=$("#home");
+    $home.on('click',function () {
+        $content.hide();
         $("#homecontent").show();
     });
-    $("#produce").click(function () {
-        $(".content").hide();
+    $("#produce").on('click',function () {
+        $content.hide();
         $("#producecontent").show();
 		operation(1);
     });
-    $("#trade").click(function () {
-        $(".content").hide();
+    $("#trade").on('click',function () {
+        $content.hide();
         $("#tradecontent").show();
     });
-    $("#loan").click(function () {
-        $(".content").hide();
+    $("#loan").on('click',function () {
+        $content.hide();
         $("#loancontent").show();
     });
-    $("#other").click(function () {
-        $(".content").hide();
+    $("#other").on('click',function () {
+        $content.hide();
         $("#othercontent").show();
     });
-    $("#current").click(function () {
-        $(".content").hide();
+    $("#current").on('click',function () {
+        $content.hide();
         $("#currentcontent").show();
     });
-    $("#history").click(function () {
-        $(".content").hide();
+    $("#history").on('click',function () {
+        $content.hide();
         $("#historycontent").show();
     });
+    $('.ui.dropdown').dropdown();
+    $home.click();
     //生产部分
-    $("#producenum").bind("change",function(){
-        inneroperation(2);
+    $("#producenum").bind('change',function(){
+        operation(2);
     });
-	$("#cleanproducenum").click(function () {
+	$("#cleanproducenum").on('click',function () {
         $("#producenum").val("");
     });
-	$("#produceSubmit").click(function () {
-        alert('提交成功，将在 10 点 30 分收获 5 个A2 .');
+	$("#produceSubmit").on('click',function () {
+        window.alert('提交成功，将在 10 点 30 分收获 5 个A2 .');
     });
 
     //贷款部分
-    $("#cleanloannum").click(function () {
+    $("#cleanloannum").on('click',function () {
         $("#loannum").val("");
     });
-    $("#cleanloanstart").click(function () {
+    $("#cleanloanstart").on('click',function () {
         $("#loanstart").val("");
     });
-    $("#cleanloaninterest").click(function () {
+    $("#cleanloaninterest").on('click',function () {
         $("#loaninterest").val("");
     });
-    $("#cleanloantime").click(function () {
+    $("#cleanloantime").on('click',function () {
         $("#loantime").val("");
     });
 	
 	//交易部分
-	$("#cleantrade1").click(function () {
+	$("#cleantrade1").on('click',function () {
         $("#moneyGiven").val("");
     });
-	$("#cleantrade2").click(function () {
+	$("#cleantrade2").on('click',function () {
         $("#goodGiven").val("");
     });
 
     //其他部分
-    $("#cleanother1").click(function() {
+    $("#cleanother1").on('click',function() {
         $("#other1").val("");
     });
-    $("#cleanother2").click(function() {
+    $("#cleanother2").on('click',function() {
         $("#other2").val("");
     });
-    $("#cleanother3").click(function() {
+    $("#cleanother3").on('click',function() {
         $("#other3").val("");
     });
-	$("#taxSubmit").click(function(){
-		alert('第1季度纳税成功！共纳税'+$('#other1').val()+'元。');
+	$("#taxSubmit").on('click',function(){
+		window.alert('第1季度纳税成功！共纳税'+$('#other1').val()+'元。');
     });
-	$("#techupSubmit").click(function(){
-		alert("NO.1队：你们已通过审核，达到2级。");
+	$("#techupSubmit").on('click',function(){
+		window.alert("NO.1队：你们已通过审核，达到2级。");
     });
-    $("#bidSubmit").click(function(){
-        alert("您的竞标申请已提交到后台,竞标价:"+$('#other3').val()+"元。审核通过后会通知您。");
+    $("#bidSubmit").on('click',function(){
+        window.alert("您的竞标申请已提交到后台,竞标价:"+$('#other3').val()+"元。审核通过后会通知您。");
     });
     //历史部分
 
-
-    $('.ui.dropdown').dropdown();
-    $("#home").click();
-})
+});
 
 function operation(val)
 {
@@ -103,13 +105,13 @@ function operation(val)
     {
         try
 		{
-            ajax = new ActiveXObject("Msxml2.XMLHTTP");
+            ajax = new window.ActiveXObject("Msxml2.XMLHTTP");
 		}
         catch (e) 
         {
             try
 			{
-                ajax = new ActiveXObject("Microsoft.XMLHTTP");
+                ajax = new window.ActiveXObject("Microsoft.XMLHTTP");
 			}
             catch (e) {}
         }
@@ -121,7 +123,7 @@ function operation(val)
     }
 	
 	
-	var msg,url,postStr;
+    var msg,url,postStr;
 	//main function
 	switch(val)
 	{
@@ -133,7 +135,7 @@ function operation(val)
 	case 2:
 		break;
 	case 3:
-		alert('提交成功，将在 10 点 30 分收获 5 个A2 .');
+		window.alert('提交成功，将在 10 点 30 分收获 5 个A2 .');
 		break;
 	
 	}
