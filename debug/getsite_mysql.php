@@ -6,7 +6,7 @@ if(empty($q)) {
     exit;
 }
 
-$con = mysqli_connect('localhost','root','1245678');
+$con = mysqli_connect('localhost','root','12345678');
 if (!$con)
 {
     die('Could not connect: ');
